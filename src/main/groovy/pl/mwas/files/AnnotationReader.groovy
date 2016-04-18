@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory
 class AnnotationReader implements ProteanaFileReader {
 
     private ArrayList<String> lines
-    private static final Logger log = LoggerFactory.getLogger(AnnotationReader.class)
+    private static final Logger log = LoggerFactory.getLogger(AnnotationReader)
 
     AnnotationReader() { lines = [] }
 

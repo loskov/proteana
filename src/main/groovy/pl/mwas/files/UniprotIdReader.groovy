@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 class UniprotIdReader implements ProteanaFileReader {
 
     private ArrayList<String> lines
-    private static final Logger log = LoggerFactory.getLogger(UniprotIdReader.class)
+    private static final Logger log = LoggerFactory.getLogger(UniprotIdReader)
 
     UniprotIdReader() { lines = [] }
 
