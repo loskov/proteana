@@ -12,6 +12,6 @@ class UniprotIdReaderTest extends Specification {
             def result = er.readFileFromPath(path)
         then:
             assert result.size() == 2
-            assert result == ["P1AAA0","A0AZZ0B001"]
+            assert result.containsAll(["P1AAA0","A0AZZ0B001"])
     }
 }

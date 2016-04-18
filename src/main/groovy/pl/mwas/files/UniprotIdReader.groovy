@@ -4,24 +4,27 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
+/**
+ * http://www.uniprot.org/help/accession_numbers
+ * uniprot ids have to match [OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}*/
 @Service
-class UniprotIdReader {
-    /**
-     ** matches   [OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}
-     ** http://www.uniprot.org/help/accession_numbers
-     **/
+class UniprotIdReader implements ProteanaFileReader {
 
     private ArrayList<String> lines
     private static final Logger log = LoggerFactory.getLogger(UniprotIdReader.class)
 
     UniprotIdReader() { lines = [] }
 
+    @Override
     public ArrayList<String> readFileFromPath(String path) {
         log.debug("Reading files form file: " + path)
         lines = new File(path).readLines()
-        log.info("just for test")
+
+        log.debug("Lines read: " + lines.size())
+        log.debug("Line useful: " + lines.parallelStream()
+                .filter({ it.matches("[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}") }).count())
+        log.debug(lines.toString())
         return lines.parallelStream()
-                .filter({it.matches("[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}")})
-                .collect()
+                .filter({ it.matches("[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}") }).collect()
     }
 }

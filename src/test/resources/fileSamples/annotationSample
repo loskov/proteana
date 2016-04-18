@@ -1,0 +1,39 @@
+!GOC Validation Date: 04/13/2016 $
+!Submission Date: 4/13/2016
+!
+! The above "Submission Date" is when the annotation project provided
+! this file to the Gene Ontology Consortium (GOC).  The "GOC Validation
+! Date" indicates when this file was last changed as a result of a GOC
+! validation and filtering process.
+!
+! Note: The contents of this file may differ from that submitted to the
+! GOC. The identifiers and syntax of the file have been checked, rows of
+! data not meeting the standards set by the GOC have been removed. This
+! file may also have annotations removed because the annotations for the
+! listed Taxonomy identifier are only allowed in a file provided by
+! another annotation project.  The original submitted file is available from:
+!  http://www.geneontology.org/gene-associations/submission/
+!
+! For information on which taxon are allowed in which files please see:
+!  http://www.geneontology.org/GO.annotation.shtml#script
+!
+!gaf-version: 2.0
+!Project_name: UniProt GO Annotation program (UniProt-GOA)
+!URL: http://www.ebi.ac.uk/GOA
+!Contact Email: goa@ebi.ac.uk
+!
+!The set of protein accessions included in this file is based on UniProt complete proteomes, which may provide more than one protein per gene.
+!They include all Swiss-Prot entries for the species plus any TrEMBL entries that have an Ensembl DR line. The TrEMBL entries are likely to overlap with the Swiss-Prot entries or their isoforms.
+!If a particular protein accession is not annotated with GO, then it will not appear in this file.
+!
+!Note that the annotation set in this file is filtered in order to reduce redundancy; the full, unfiltered set can be found in
+!ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/gene_association.goa_uniprot.gz
+!
+!Generated: 2016-04-11 10:02
+!GO-version: http://purl.obolibrary.org/obo/go/releases/2016-04-09/go.owl
+!
+UniProtKB	A0A0A0MQ32	LOXL2		GO:0005044	GO_REF:0000002	IEA	InterPro:IPR001190	F	Lysyl oxidase homolog 2	A0A0A0MQ32_CHICK|LOXL2	protein	taxon:9031	20160409	InterPro
+UniProtKB	A0A0A0MQ32	LOXL2		GO:0005507	GO_REF:0000002	IEA	InterPro:IPR001695|InterPro:IPR019828	F	Lysyl oxidase homolog 2	A0A0A0MQ32_CHICK|LOXL2	protein	taxon:9031	20160409	InterPro
+UniProtKB	A0A0A0MQ32	LOXL2		GO:0006898	GO_REF:0000002	IEA	InterPro:IPR001190	P	Lysyl oxidase homolog 2	A0A0A0MQ32_CHICK|LOXL2	protein	taxon:9031	20160410	GOC
+UniProtKB	A0A0A0MQ32	LOXL2		GO:0016020	GO_REF:0000002	IEA	InterPro:IPR001190|InterPro:IPR017448	C	Lysyl oxidase homolog 2	A0A0A0MQ32_CHICK|LOXL2	protein	taxon:9031	20160409	InterPro
+UniProtKB	A0A0A0MQ32	LOXL2		GO:0016641	GO_REF:0000002	IEA	InterPro:IPR001695|InterPro:IPR019828	F	Lysyl oxidase homolog 2	A0A0A0MQ32_CHICK|LOXL2	protein	taxon:9031	20160409	InterPro
