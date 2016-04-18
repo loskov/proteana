@@ -5,16 +5,38 @@ import spock.lang.Specification
 
 
 class GoAnnotationTest extends Specification {
-    def "test GoAnnotation construction"() {
+
+    def 'test proper GoAnnotation()'() {
         given:
-            String testFile = 'build/resources/test/fileSamples/annotationSample'
-            AnnotationReader reader = new AnnotationReader()
-            List<String> annotations = reader.readFileFromPath(testFile)
+            String testLine = 'UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002\tIEA\tInterPro:IPR001190\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t'
         when:
-            List<GoAnnotation> actual = annotations.collect { new GoAnnotation(it) }
+            GoAnnotation annotation = new GoAnnotation(testLine)
         then:
-            assert actual.size() == 5
-            assert actual.every { it.dbId == 'A0A0A0MQ32' }
-            assert actual.collect { it.goId }.containsAll(['GO:0005044', 'GO:0005507', 'GO:0006898', 'GO:0016020', 'GO:0016641'])
+            assert annotation.db == 'UniProtKB'
+            assert annotation.dbId == 'A0A0A0MQ32'
+            assert annotation.dbSymbol == 'LOXL2'
+            assert annotation.qualifiers == []
+            assert annotation.goId == 'GO:0005044'
+            assert annotation.dbReference == ['GO_REF:0000002']
+            assert annotation.evidenceCode == 'IEA'
+            assert annotation.withOrFrom == ['InterPro:IPR001190']
+            assert annotation.aspect == 'F'
+            assert annotation.dbName == 'Lysyl oxidase homolog 2'
+            assert annotation.dbSynonym == ['A0A0A0MQ32_CHICK','LOXL2']
+            assert annotation.dbType == 'protein'
+            assert annotation.taxon == ['taxon:9031']
+            assert annotation.date == '20160409'
+            assert annotation.assignedBy == 'InterPro'
+            assert annotation.annotationExtension == []
+            assert annotation.geneProduct == ''
+    }
+
+    def 'create GoAnnotation from null'() {
+        given:
+            String testLine = null
+        when:
+            new GoAnnotation(testLine)
+        then:
+            thrown(IllegalArgumentException)
     }
 }
