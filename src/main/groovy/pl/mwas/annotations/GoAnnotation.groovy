@@ -3,14 +3,20 @@ package pl.mwas.annotations
 import groovy.transform.ToString
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Component
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
 
-@Component
-@ToString(includePackage = false)
+@Entity
+@ToString(includePackage = false, excludes = "id")
 class GoAnnotation {
 
     private static final Logger log = LoggerFactory.getLogger(GoAnnotation)
     
+    @Id
+    @GeneratedValue
+    Long id
+
     String db
     String dbId
     String dbSymbol
@@ -28,6 +34,8 @@ class GoAnnotation {
     String assignedBy
     ArrayList<String> annotationExtension
     String geneProduct
+    
+    protected GoAnnotation() {}
 
     GoAnnotation(String line) {
         if (line != null) {
@@ -64,5 +72,26 @@ class GoAnnotation {
             }
         }
         return [];
+    }
+
+    boolean equals(o) {
+        if (this.is(o)) return true
+        if (getClass() != o.class) return false
+
+        GoAnnotation that = (GoAnnotation) o
+
+        if (dbId != that.dbId) return false
+        if (dbName != that.dbName) return false
+        if (goId != that.goId) return false
+
+        return true
+    }
+
+    int hashCode() {
+        int result
+        result = dbId.hashCode()
+        result = 31 * result + goId.hashCode()
+        result = 31 * result + dbName.hashCode()
+        return result
     }
 }

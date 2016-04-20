@@ -1,8 +1,6 @@
 package pl.mwas.annotations
 
-import pl.mwas.files.AnnotationReader
 import spock.lang.Specification
-
 
 class GoAnnotationTest extends Specification {
 
@@ -38,5 +36,14 @@ class GoAnnotationTest extends Specification {
             new GoAnnotation(testLine)
         then:
             thrown(IllegalArgumentException)
+    }
+    
+    def 'test equality and hashcode'() {
+        when:
+            GoAnnotation goThis = new GoAnnotation('UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002\tIEA\tInterPro:IPR001190\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t')
+            GoAnnotation goAnother = new GoAnnotation('UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002\tIEA\tInterPro:IPR001190\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t')
+        then:
+            assert goThis == goAnother
+            assert goThis.hashCode() == goAnother.hashCode()
     }
 }
