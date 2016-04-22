@@ -13,7 +13,7 @@ class AnnotationParser implements ProteanaParser {
     @Override
     List<GoAnnotation> parse(List<String> inputLines) {
         log.debug("Parsing ${inputLines.size()} annotations...")
-        return inputLines.collect{new GoAnnotation(it)}
+        return inputLines.collect { new GoAnnotation(it) }
     }
 
     @Override

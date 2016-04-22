@@ -20,7 +20,7 @@ class GoAnnotationTest extends Specification {
             assert annotation.withOrFrom == ['InterPro:IPR001190']
             assert annotation.aspect == 'F'
             assert annotation.dbName == 'Lysyl oxidase homolog 2'
-            assert annotation.dbSynonym == ['A0A0A0MQ32_CHICK','LOXL2']
+            assert annotation.dbSynonym == ['A0A0A0MQ32_CHICK', 'LOXL2']
             assert annotation.dbType == 'protein'
             assert annotation.taxon == ['taxon:9031']
             assert annotation.date == '20160409'
@@ -37,7 +37,7 @@ class GoAnnotationTest extends Specification {
         then:
             thrown(IllegalArgumentException)
     }
-    
+
     def 'create GoAnnotation from malformed'() {
         given:
             String testLine = 'UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002'
@@ -46,7 +46,7 @@ class GoAnnotationTest extends Specification {
         then:
             thrown(IllegalArgumentException)
     }
-    
+
     def 'test equality and hashcode'() {
         when:
             GoAnnotation goThis = new GoAnnotation('UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002\tIEA\tInterPro:IPR001190\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t')

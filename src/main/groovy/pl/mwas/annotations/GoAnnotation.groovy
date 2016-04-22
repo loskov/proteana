@@ -4,6 +4,7 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -65,7 +66,6 @@ class GoAnnotation {
 
             log.debug(this.toString())
         }
-        
     }
 
     private final static ArrayList<String> parseComplexString(String complex) {

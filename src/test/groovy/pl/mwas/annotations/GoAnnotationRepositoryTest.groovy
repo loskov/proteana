@@ -3,16 +3,15 @@ package pl.mwas.annotations
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import pl.mwas.ProteanaApp
-import spock.lang.Shared
 import spock.lang.Specification
 
 @ContextConfiguration(classes = ProteanaApp)
 class GoAnnotationRepositoryTest extends Specification {
 
-    
+
     @Autowired
     GoAnnotationRepository repository
-    
+
     def setup() {
         repository.save(new GoAnnotation("UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005044\tGO_REF:0000002\tIEA\tInterPro:IPR001190\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t"))
         repository.save(new GoAnnotation("UniProtKB\tA0A0A0MQ32\tLOXL2\t\tGO:0005507\tGO_REF:0000002\tIEA\tInterPro:IPR001695|InterPro:IPR019828\tF\tLysyl oxidase homolog 2\tA0A0A0MQ32_CHICK|LOXL2\tprotein\ttaxon:9031\t20160409\tInterPro\t\t"))
