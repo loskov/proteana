@@ -27,6 +27,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
     compile "com.h2database:h2:1.4.191"
     compile "com.google.guava:guava:19.0"
+    compile 'org.gperfutils:gbench:0.4.3-groovy-2.4'
 
     //tests
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
