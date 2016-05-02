@@ -2,14 +2,22 @@ package pl.mwas.math.factorials
 
 import spock.lang.Specification
 
-
 class BasicFactorialTest extends Specification {
-    def "test computeFactorial"() {
-        given:
-            BasicFactorial fact = new BasicFactorial()
+    def "get basic factorial(10)"() {
         when:
-            def result = fact.computeFactorial(10)
+            BasicFactorial fact = new BasicFactorial(10)
         then:
-            result == BigDecimal.valueOf(3628800)
+            fact.base == BigDecimal.valueOf(10)
+            fact.result == BigDecimal.valueOf(3628800)
+    }
+
+    def "test factorial comparing"() {
+        when:
+            BasicFactorial f1 = new BasicFactorial(10)
+            BasicFactorial f2 = new BasicFactorial(3)
+        then:
+            assert f1 > f2
+            assert f2 < f1
+            assert f1 == f1
     }
 }
